@@ -54,13 +54,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testListingKitchenTicketsWithoutTokenIsUnauthorized
 
-**Symptôme** :
+**Symptôme** : L'on peut lister les bons/tickets diponibles alors qu'on est pas connecté (200) au lieu d'une 401 qui déclare qu'on est pas authorisé car pas authentifier
 
-**Cause** :
+**Cause** : L'opération de récupérations de la liste de tickets n'est pas du tout sécurisée
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Les opérations qui nécessitent une authentification doivent être sécurisées dans la déclaration de l'opération pour que la règle d'authentification soit la priorité
 
-**Correctif** :
+**Correctif** : Rajouter le security: "is_granted('ROLE_USER')" sur l'opération GET des tickets dans le domaine concerné
 
 ## testOpeningAnOrderIgnoresAnAbandonedOne
 
