@@ -93,10 +93,10 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testRemovingALineFromSomeoneElsesOrderIsForbidden
 
-**Symptôme** :
+**Symptôme** : Essayer de supprimer la ligne d'un autre user renvoie une 204 au lieu d'une 403 qui indique clairement qu'il n'est pas autorisé à faire cette action
 
-**Cause** :
+**Cause** : les règles de sécurtité sur cette opérations ne sont pas strictes et ne permettent pas de lever la bonne exception
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Les règles de sécurité se déclarent sur l'opération et doivent êtres le plus stricte et le plus explicite possible
 
-**Correctif** :
+**Correctif** : Remplacer le or par and au niveau de security de l'operation DELETE concerneé pour valider strictement les deux règles : avoir un rôle user et être le propriétaire de la ressource à supprimer
