@@ -14,13 +14,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testAddingALineToAPaidOrderIsAConflict
 
-**Symptôme** :
+**Symptôme** : Ajouter une ligne dans un order déjà payé renvoie une 201 signe de réussite de l'opération au lieu d'une 409 qui indiquerait que cette opération crée un conflit
 
-**Cause** :
+**Cause** : Le service d'Order ne fait pas de vérifications sur le statut de l'order avant de faire un addLine()
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Toujours faire les vérifications sur les opérations d'ajout dans un cas de lien fort car une ligne qui se crée dans un order déjà payé va à l'encontre du contrat métier.
 
-**Correctif** :
+**Correctif** : Rajouter la vérification du status du panier dans addLine() de OrderService et lever l'exception appropriée.
 
 ## testAddingALineToMyOrder
 

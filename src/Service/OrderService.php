@@ -111,9 +111,15 @@ class OrderService
      *
      * @throws DishNotFoundException            quand aucun plat ne porte l'identifiant envoyé
      * @throws OrderRestaurantMismatchException quand le plat vient d'un autre restaurant que les lignes déjà commandées
+     * @throws OrderAlreadyPaidException  quand la commande n'est plus modifiable
      */
     public function addLine(Order $order, OrderAddLineInput $input): Order
     {
+
+        if (OrderStatus::Paid === $order->getStatus()) {
+            throw new OrderAlreadyPaidException();
+        }
+
         // résoudre un plat appartient au domaine des plats : ce service passe par le sien
         $dish = $this->dishService->findOneById(Uuid::fromString($input->dishId));
 
