@@ -34,13 +34,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testAddingALineWithAZeroQuantityIsUnprocessable
 
-**Symptôme** :
+**Symptôme** : On peut rajouter une ligne avec une quantité de 0 au lieu de recevoir une 422 qui indique que l'entré n'est pas valide
 
-**Cause** :
+**Cause** : La DTO d'entrée pour les lignes fais valider une assertion, ou une validation fausse selon les règles métiers en acceptant des quantités positives ou nulles.
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Toujours bien faire valider en surface le format des objets reçus en entrée pour se conformer au contrat métier
 
-**Correctif** :
+**Correctif** : Corriger la contrainte sur la quantité en mettant juste le "#[Assert\Positive]"
 
 ## testListingKitchenTicketsReturnsMine
 
