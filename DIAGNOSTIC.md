@@ -4,13 +4,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testAddingALineToAnUnknownOrderIsNotFound
 
-**Symptôme** :
+**Symptôme** : On recoit un 500 au lieu d'un 404 si on essaye d'ajouter des lignes sur un order non accessible.
 
-**Cause** :
+**Cause** : L'opération ne fait pas remonter l'object réel sur lequel faire l'évaluation d'appartenance donc le serveur lève la 500 en premier.
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Un Provider doit servir l'object courant pour vérifier cette règle sécurité sur une opération.
 
-**Correctif** :
+**Correctif** : Rajouter le OrderProvider qui fournit cet object directement sur l'opération concernée
 
 ## testAddingALineToAPaidOrderIsAConflict
 
