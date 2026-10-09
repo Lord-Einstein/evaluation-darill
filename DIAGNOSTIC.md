@@ -44,13 +44,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testListingKitchenTicketsReturnsMine
 
-**Symptôme** :
+**Symptôme** : Alice consulte à la demande des bons qui pourtant ne lui appartiennent pas, elle n'en a pas et devrait pas en recevoir
 
-**Cause** :
+**Cause** : La requête de récupération de bons est mal formée et laisse remonter tous les bons sans filtres
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Un utilisateur ne doit avoir accès qu'au données qui le concerne et cette règle commence par la bonne constitution de requêtes
 
-**Correctif** :
+**Correctif** : Rajouter le filtre qui vérifie que les bons à remonter appartiennent bien à l'user courant dans le repository des Kitchens Tickets
 
 ## testListingKitchenTicketsWithoutTokenIsUnauthorized
 
