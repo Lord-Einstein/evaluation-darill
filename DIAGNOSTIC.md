@@ -24,13 +24,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testAddingALineToMyOrder
 
-**Symptôme** :
+**Symptôme** : Ajouter une ligne dans l'order ne renvoie pas les informations exactes.
 
-**Cause** :
+**Cause** : Le toLine() du OrderService calcul mal le subtotal et donc fausse complètement le rendu
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Le sousTotal n'est pas fixé dans une colonne il doit être recalculé à chaque fois qu'il faut rendre la donnée
 
-**Correctif** :
+**Correctif** : Calculer correctement le subTotal en multipliant le prix par la quantité.
 
 ## testAddingALineWithAZeroQuantityIsUnprocessable
 
