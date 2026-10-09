@@ -73,13 +73,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testPayingMyOrderMarksItPaid
 
-**Symptôme** : La sortie semble attendre un corps et un autre est renvoyé
+**Symptôme** : La sortie n'est pas conforme à l'état attendu après un règlement d'order
 
-**Cause** : 
+**Cause** : la fonction pay ne flush pas donc pas d'enregistrement dans la db et donc pas de paiement réel effectué
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Les modifications d'états doivent être flushés pour être admises en base, c'est la base qui détient la vérité sur ce qui est réellement
 
-**Correctif** :
+**Correctif** : Rajouter le flush avant le return de la méthode pay dans order service
 
 ## testRefreshingTwiceWithTheSameTokenIsUnauthorized
 
