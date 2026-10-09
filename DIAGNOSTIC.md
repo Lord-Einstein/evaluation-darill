@@ -83,13 +83,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testRefreshingTwiceWithTheSameTokenIsUnauthorized
 
-**Symptôme** :
+**Symptôme** : On est autorisé à se connecter donc 200 au lieu d'une 401 quand le jeton de refresh est utilisé deux fois d'affilée.
 
-**Cause** :
+**Cause** : Dans la config on il est marqué qu'un jeton de rounouvellement peut s'utiliser plusieurs fois.
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : Les configurations définissent le comportement général de certains éléments dont par exemple le comportement des refresh token, d'où l'importance de bien configuré ces fichiers là.
 
-**Correctif** :
+**Correctif** : Mettre à true le single_use: true dans le gesdinet_jwt....token au niveau des fichiers de configuraation.
 
 ## testRemovingALineFromSomeoneElsesOrderIsForbidden
 
