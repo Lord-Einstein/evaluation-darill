@@ -73,9 +73,9 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testPayingMyOrderMarksItPaid
 
-**Symptôme** :
+**Symptôme** : La sortie semble attendre un corps et un autre est renvoyé
 
-**Cause** :
+**Cause** : 
 
 **Règle du module en jeu** :
 
